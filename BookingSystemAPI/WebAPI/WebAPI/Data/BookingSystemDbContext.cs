@@ -14,6 +14,8 @@ namespace WebAPI.Data
         public DbSet<Room> Room { get; set; }
         public DbSet<Customer> Customer { get; set; }
         public DbSet<PaymentProcess> PaymentProcess { get; set; }
+        public DbSet<Invoice> Invoice { get; set; }
+
 
 
 
