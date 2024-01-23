@@ -13,6 +13,8 @@ namespace WebAPI.Data
         public DbSet<Hotel> Hotels { get; set; }
         public DbSet<Room> Room { get; set; }
         public DbSet<Customer> Customer { get; set; }
+        public DbSet<PaymentProcess> PaymentProcess { get; set; }
+
 
 
     }
