@@ -66,3 +66,4 @@ C:\Users\sauuu\OneDrive\ドキュメント\codebro\BookingSystem\FullStack UI\Bo
 C:\Users\sauuu\OneDrive\ドキュメント\codebro\BookingSystem\FullStack UI\BookingSystemAPI\WebAPI\WebAPI\obj\Debug\net6.0\WebAPI.pdb
 C:\Users\sauuu\OneDrive\ドキュメント\codebro\BookingSystem\FullStack UI\BookingSystemAPI\WebAPI\WebAPI\obj\Debug\net6.0\WebAPI.genruntimeconfig.cache
 C:\Users\sauuu\OneDrive\ドキュメント\codebro\BookingSystem\FullStack UI\BookingSystemAPI\WebAPI\WebAPI\obj\Debug\net6.0\ref\WebAPI.dll
+C:\Users\sauuu\OneDrive\ドキュメント\codebro\BookingSystem\FullStack UI\BookingSystemAPI\WebAPI\WebAPI\obj\Debug\net6.0\WebAPI.sourcelink.json
