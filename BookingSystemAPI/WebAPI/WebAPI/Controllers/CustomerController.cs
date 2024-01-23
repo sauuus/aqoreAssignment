@@ -7,7 +7,7 @@ using WebAPI.Models;
 namespace WebAPI.Controllers
 {
     [ApiController]
-    [Route("api/Customer")]
+    [Route("api/[controller]")]
     public class CustomerController : Controller {
 
     private readonly BookingSystemDbContext _bookingSystemDbContext;
