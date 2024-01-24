@@ -1,0 +1,175 @@
+<div class="container my-5">
+  <h1 class="mb-3">Add Room</h1>
+  <div class="row">
+    <div class="col-6">
+      <form [formGroup]="roomReactiveForm" (ngSubmit)="addRoom()">
+        <div class="mb-3">
+          <label for="h_id" class="form-label">Hotel</label>
+          <select class="form-select" id="h_id" formControlName="h_id">
+            <option [ngValue]="null">-- Select Hotel --</option>
+            <option *ngFor="let hotel of hotels" [value]="hotel.h_id">
+              {{ hotel.h_name }}
+            </option>
+          </select>
+        </div>
+        <div
+          class="invalid-feedback"
+          *ngIf="
+            roomReactiveForm?.get('h_id')?.invalid &&
+            (roomReactiveForm.get('h_id')?.dirty ||
+              roomReactiveForm.get('h_id')?.touched)
+          "
+        >
+          <div *ngIf="roomReactiveForm.get('h_id')?.errors?.['required']">
+            Hotel's Room is required.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="r_type" class="form-label">Room Type</label>
+          <input
+            type="text"
+            class="form-control"
+            id="r_type"
+            formControlName="r_type"
+            [ngClass]="{
+              'is-invalid':
+                roomReactiveForm.controls['r_type'].invalid &&
+                (roomReactiveForm.controls['r_type'].dirty ||
+                  roomReactiveForm.controls['r_type'].touched)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              roomReactiveForm.get('r_type')?.invalid &&
+              (roomReactiveForm.get('r_type')?.dirty ||
+                roomReactiveForm.get('r_type')?.touched)
+            "
+          >
+            <div
+              *ngIf="roomReactiveForm.controls['r_type']?.errors?.['required']"
+            >
+              Room Type is required.
+            </div>
+            <div
+              *ngIf="roomReactiveForm.controls['r_type']?.errors?.['minlength']"
+            >
+              Should have more than 2 characters.
+            </div>
+            <div
+              *ngIf="roomReactiveForm.controls['r_type']?.errors?.['maxlength']"
+            >
+              Should have less than 30 characters.
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input
+            type="number"
+            class="form-control"
+            id="price"
+            formControlName="price"
+            [ngClass]="{
+              'is-invalid':
+                roomReactiveForm.controls['price'].invalid &&
+                (roomReactiveForm.controls['price'].dirty ||
+                  roomReactiveForm.controls['price'].touched)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              roomReactiveForm.get('price')?.invalid &&
+              (roomReactiveForm.get('price')?.dirty ||
+                roomReactiveForm.get('price')?.touched)
+            "
+          >
+            <div
+              *ngIf="roomReactiveForm.controls['price']?.errors?.['required']"
+            >
+              Price is required.
+            </div>
+            <div *ngIf="roomReactiveForm.controls['price']?.errors?.['min']">
+              Cannot be negative
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="remainingQuantity" class="form-label"
+            >Remaining Quantity</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="remainingQuantity"
+            formControlName="remainingQuantity"
+            [ngClass]="{
+              'is-invalid':
+                roomReactiveForm.controls['remainingQuantity'].invalid &&
+                (roomReactiveForm.controls['remainingQuantity'].dirty ||
+                  roomReactiveForm.controls['remainingQuantity'].touched)
+            }"
+          />
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              roomReactiveForm.get('remainingQuantity')?.invalid &&
+              (roomReactiveForm.get('remainingQuantity')?.dirty ||
+                roomReactiveForm.get('remainingQuantity')?.touched)
+            "
+          >
+            <div
+              *ngIf="roomReactiveForm.controls['remainingQuantity']?.errors?.['required']"
+            >
+              Remaining Quantity is required.
+            </div>
+            <div
+              *ngIf="roomReactiveForm.controls['remainingQuantity']?.errors?.['min']"
+            >
+              Remaining Quantity cannot be negative
+            </div>
+          </div>
+        </div>
+        <div class="mb-3">
+          <div class="form-check">
+          <input
+            type="checkbox"
+            class="form-check-input"
+            id="available"
+            formControlName="available"
+            [ngClass]="{
+              'is-invalid':
+                roomReactiveForm.controls['available'].invalid &&
+                (roomReactiveForm.controls['available'].dirty ||
+                  roomReactiveForm.controls['available'].touched)
+            }"
+          />
+          <label for="available" class="form-check-label">Available</label>
+          <div
+            class="invalid-feedback"
+            *ngIf="
+              roomReactiveForm.get('available')?.invalid &&
+              (roomReactiveForm.get('available')?.dirty ||
+                roomReactiveForm.get('available')?.touched)
+            "
+          >
+            <div
+              *ngIf="roomReactiveForm.controls['available']?.errors?.['required']"
+            >
+              This checkbox is required.
+            </div>
+          </div>
+        </div>
+        </div>
+        <button
+          type="submit"
+          class="btn btn-secondary"
+          [disabled]="!roomReactiveForm.valid"
+        >
+          Add Room
+        </button>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Hotels } from '../models/hotels.model';
+import { Hotels } from '../../models/hotels.model';
 import { Observable, map } from 'rxjs';
 
 @Injectable({
@@ -23,11 +23,9 @@ export class HotelsService {
   }
 
   getHotel(h_id: number): Observable<Hotels> {
-    return this.http.get<Hotels[]>(
-      this.baseApiUrl + 'api/Hotel/getHotelById/' + h_id
-    ).pipe(
-      map(response => response[0])
-    );
+    return this.http
+      .get<Hotels[]>(this.baseApiUrl + 'api/Hotel/getHotelById/' + h_id)
+      .pipe(map((response) => response[0]));
   }
 
   updateHotel(h_id: number, editHotelReq: Hotels): Observable<Hotels> {
@@ -39,6 +37,7 @@ export class HotelsService {
 
   deleteHotel(h_id: number): Observable<Hotels> {
     return this.http.delete<Hotels>(
-      this.baseApiUrl + `api/Hotel/deleteHotel/` + h_id);
+      this.baseApiUrl + `api/Hotel/deleteHotel/` + h_id
+    );
   }
 }

@@ -1,0 +1,75 @@
+<div class="container my-5">
+    <h1 class="mb-3">Update Room</h1>
+    <div class="row">
+      <div class="col-6">
+        <form #form="ngForm" (ngSubmit)="updateRoom()">
+          <div class="mb-3">
+            <label for="id" class="form-label">Room Id</label>
+            <input
+              type="number"
+              class="form-control"
+              id="id"
+              readonly
+              name="id"
+              [(ngModel)]="editRoomReq.r_id"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="r_type" class="form-label">Room Type</label>
+            <input
+              type="text"
+              class="form-control"
+              id="r_type"
+              name="r_type"
+              [(ngModel)]="editRoomReq.r_type"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              class="form-control"
+              id="price"
+              name="price"
+              [(ngModel)]="editRoomReq.price"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="remainingQuantity" class="form-label">Remaining Quantity</label>
+            <input
+              type="number"
+              class="form-control"
+              id="remainingQuantity"
+              name="remainingQuantity"
+              [(ngModel)]="editRoomReq.remainingQuantity"
+            />
+          </div>
+          <div class="mb-3">
+            <div class="form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="available"
+                name="available"
+                [(ngModel)]="editRoomReq.available"
+              />
+            <label for="available" class="form-check-label">Available</label>
+          </div>
+          </div>
+          <div class="d-grid gap-2 d-md-block">
+          <button type="submit" class="btn btn-outline-secondary btn-sm mr-5">
+            Save
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm ml-5"
+            (click)="deleteRoom(editRoomReq.r_id)"
+          >
+            Delete
+          </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
