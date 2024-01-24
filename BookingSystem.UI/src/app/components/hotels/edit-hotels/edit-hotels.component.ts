@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { HotelsService } from 'src/app/Services/hotels.service';
+import { HotelsService } from 'src/app/Services/hotel/hotels.service';
 import { Hotels } from 'src/app/models/hotels.model';
 @Component({
   selector: 'app-edit-hotels',
@@ -34,20 +34,20 @@ export class EditHotelsComponent implements OnInit {
     this.route.paramMap.subscribe({
       next: (params) => {
         const idString = params.get('id');
-        if(idString !== null){
+        if (idString !== null) {
           const id = parseInt(idString);
-        if (id) {
-          this.hotelService.getHotel(id).subscribe({
-            next: (response) => {
-              this.editHotelReq = response;
-              console.log(this.editHotelReq);
-            },
-          });
-        } else {
-          console.log('nono');
+          if (id) {
+            this.hotelService.getHotel(id).subscribe({
+              next: (response) => {
+                this.editHotelReq = response;
+                console.log(this.editHotelReq);
+              },
+            });
+          } else {
+            console.log('nono');
+          }
         }
-      }
-    }
+      },
     });
   }
 
@@ -61,12 +61,11 @@ export class EditHotelsComponent implements OnInit {
       });
   }
 
-  deleteHotel(h_id: number){
-    this.hotelService.deleteHotel(h_id)
-    .subscribe({
-      next: (response) =>{
-        this.router.navigate(['hotels'])
-      }
-    })
+  deleteHotel(h_id: number) {
+    this.hotelService.deleteHotel(h_id).subscribe({
+      next: (response) => {
+        this.router.navigate(['hotels']);
+      },
+    });
   }
 }

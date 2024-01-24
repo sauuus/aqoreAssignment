@@ -1,0 +1,46 @@
+<div class="container my-5 center">
+  <h1 class="mb-3">Rooms List</h1>
+  <a routerLink="addRoom" class="button-3"
+    ><i class="bi bi-plus-circle"></i> Add Room</a
+  >
+  <br />
+  <br />
+
+  <table class="table" *ngIf="rooms && rooms.length > 0">
+    <thead class="header">
+      <tr>
+        <th>Room ID</th>
+        <th>Hotel ID</th>
+        <th>Room Type</th>
+        <th>Price</th>
+        <th>Remaining Quantity</th>
+        <th>Available</th>
+
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let room of rooms; index as i"
+        [ngClass]="{
+          'table-row-even': i % 2 === 0,
+          'table-row-odd': i % 2 !== 0
+        }"
+      >
+        <td>{{ room.r_id }}</td>
+        <td>{{ room.h_id }}</td>
+        <td>{{ room.r_type }}</td>
+        <td>{{ room.price }}</td>
+        <td>{{ room.remainingQuantity }}</td>
+        <td>{{ room.available }}</td>
+
+        <td>
+          <a [routerLink]="['/edit/room', room.r_id]"
+            ><i class="bi bi-pencil-square"></i> Edit</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!rooms || rooms.length <= 0">No Rooms has been recorded!</p>
+</div>

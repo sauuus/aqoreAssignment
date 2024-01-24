@@ -1,4 +1,4 @@
-import { HotelsService } from './../../../Services/hotels.service';
+import { HotelsService } from '../../../Services/hotel/hotels.service';
 import { Component, OnInit } from '@angular/core';
 import { Hotels } from 'src/app/models/hotels.model';
 
