@@ -11,7 +11,7 @@ import { Invoice } from 'src/app/models/invoice.model';
   styleUrls: ['./edit-invoice.component.css'],
 })
 export class EditInvoiceComponent {
-  invoiceReactiveForm!: FormGroup;
+  // invoiceReactiveForm!: FormGroup;
   editInvoiceReq: Invoice = {
     invoiceId: 0,
     c_id: 0,
@@ -20,7 +20,7 @@ export class EditInvoiceComponent {
     discount: 0,
     discountedAmount: 0,
   };
-  customers: Customer[] = [];
+  // customers: Customer[] = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -28,89 +28,84 @@ export class EditInvoiceComponent {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    this.invoiceReactiveForm = new FormGroup({
-      c_id: new FormControl(null, Validators.required),
-      invoiceDate: new FormControl(null, Validators.required),
-      totalAmount: new FormControl(null, [
-        Validators.required,
-        Validators.min(0),
-      ]),
-      discount: new FormControl(null, [
-        Validators.required,
-        Validators.min(0),
-        Validators.max(1),
-      ]),
-      discountedAmount: new FormControl(null, [
-        Validators.required,
-        Validators.min(0),
-      ]),
-    });
+    // this.invoiceReactiveForm = new FormGroup({
+    //   c_id: new FormControl(null, Validators.required),
+    //   invoiceDate: new FormControl(null, Validators.required),
+    //   totalAmount: new FormControl(null, [
+    //     Validators.required,
+    //     Validators.min(0),
+    //   ]),
+    //   discount: new FormControl(null, [
+    //     Validators.required,
+    //     Validators.min(0),
+    //     Validators.max(1),
+    //   ]),
+    //   discountedAmount: new FormControl(null, [
+    //     Validators.required,
+    //     Validators.min(0),
+    //   ]),
+    // });
 
-    this.fetchCustomer();
+    // this.fetchCustomer();
 
-    this.route.paramMap.subscribe({
-      next: (params) => {
-        const idString = params.get('invoiceId');
-
-        if (idString !== null) {
-          const id = parseInt(idString);
-
-          if (id) {
-            this.invoiceService.getInvoice(id).subscribe({
-              next: (response) => {
-                this.editInvoiceReq = response;
-                console.log(response);
-                this.populateForm();
-              }
-            });
+    ngOnInit(): void {
+      this.route.paramMap.subscribe({
+        next: (params) => {
+          const idString = params.get('id');
+          if (idString !== null) {
+            const id = parseInt(idString);
+            if (id) {
+              this.invoiceService.getInvoice(id).subscribe({
+                next: (response) => {
+                  this.editInvoiceReq = response;
+                  this.editInvoiceReq.c_id = this.editInvoiceReq.c_id; // Initialize c_id
+                  console.log(this.editInvoiceReq);
+                },
+              });
+            } else {
+              console.log('nono');
+            }
           }
-        }
-      }
-    });
-  }
+        },
+      });
+    }
 
-  fetchCustomer(): void {
-    this.invoiceService.getAllCustomer().subscribe(
-      (customers) => {
-        this.customers = customers;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
+  // fetchCustomer(): void {
+  //   this.invoiceService.getAllCustomer().subscribe(
+  //     (customers) => {
+  //       this.customers = customers;
+  //     },
+  //     (error) => {
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
 
-  private populateForm(): void {
-    this.invoiceReactiveForm.patchValue({
-      c_id: this.editInvoiceReq.c_id,
-      invoiceDate: this.editInvoiceReq.invoiceDate,
-      totalAmount: this.editInvoiceReq.totalAmount,
-      discount: this.editInvoiceReq.discount,
-      discountedAmount: this.editInvoiceReq.discountedAmount
-    });
-  }
-
-  updateInvoice(): void {
-    
-    this.invoiceService.updateInvoice(this.editInvoiceReq.invoiceId, this.invoiceReactiveForm.value)
+  // private populateForm(): void {
+  //   this.invoiceReactiveForm.patchValue({
+  //     c_id: this.editInvoiceReq.c_id,
+  //     invoiceDate: this.editInvoiceReq.invoiceDate,
+  //     totalAmount: this.editInvoiceReq.totalAmount,
+  //     discount: this.editInvoiceReq.discount,
+  //     discountedAmount: this.editInvoiceReq.discountedAmount
+  //   });
+  // }
+  updateInvoice() {
+    this.invoiceService
+      .updateInvoice(this.editInvoiceReq.invoiceId, this.editInvoiceReq)
       .subscribe({
-        next: (response) => {
+        next: (invoice) => {
           this.router.navigate(['invoice']);
         },
-        error: (error) => {
-          console.log("ewwwwwww");
-        }
       });
   }
 
-  deleteInvoice(invoiceId: number): void {
-    this.invoiceService.deleteInvoice(invoiceId)
-      .subscribe({
-        next: (response) => {
-          this.router.navigate(['invoice']);
-        }
-      });
+  deleteInvoice(invoiceId: number) {
+    this.invoiceService.deleteInvoice(invoiceId).subscribe({
+      next: (invoice) => {
+        this.router.navigate(['invoice']);
+      },
+    });
   }
 }

@@ -10,7 +10,7 @@ import { Customer } from 'src/app/models/customer.model';
   styleUrls: ['./edit-customer.component.css']
 })
 export class EditCustomerComponent implements OnInit {
-  customerReactiveForm!: FormGroup;
+  // customerReactiveForm!: FormGroup;
   
   editCustomerReq: Customer = {
     c_id: 0,
@@ -21,30 +21,31 @@ export class EditCustomerComponent implements OnInit {
   constructor(private route: ActivatedRoute, private customerService: CustomerService, private router: Router) { }
 
   ngOnInit(): void {
-    this.customerReactiveForm = new FormGroup({
-      fullName: new FormControl(null, [Validators.required, Validators.minLength(5)]),
-      email: new FormControl(null, [Validators.required, Validators.email]),
-      contact: new FormControl(null,[Validators.required, Validators.pattern(('^[0-9]{10}$'))])
-    });
+    // this.customerReactiveForm = new FormGroup({
+    //   fullName: new FormControl(null, [Validators.required, Validators.minLength(5)]),
+    //   email: new FormControl(null, [Validators.required, Validators.email]),
+    //   contact: new FormControl(null,[Validators.required, Validators.pattern(('^[0-9]{10}$'))])
+    // });
     this.route.paramMap.subscribe({
       next: (params) => {
-        const idString = params.get('c_id');
-
+        const idString = params.get('id');
+  
         if(idString !== null){
           const id = parseInt(idString);
+  
+          if(id){
+            this.customerService.getCustomer(id).subscribe({
+              next: (response) => {
+                this.editCustomerReq = response;
+                console.log(this.editCustomerReq);
 
-
-        if(id){
-          this.customerService.getCustomer(id).subscribe({
-            next: (response) => {
-              this.editCustomerReq = response
-              console.log(response);
-              // this.populateForm();
-            }
-          });
+              }
+            });
+          }else {
+            console.log('nono');
+          }
         }
       }
-    }
     });
   }
 
@@ -62,7 +63,7 @@ export class EditCustomerComponent implements OnInit {
     updateCustomer(){
       this.customerService.updateCustomer(this.editCustomerReq.c_id, this.editCustomerReq)
       .subscribe({
-        next: (response) => {
+        next: (customer) => {
           this.router.navigate(['customer']);
         },
         error: (error) => {

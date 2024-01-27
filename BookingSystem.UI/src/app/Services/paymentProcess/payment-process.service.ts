@@ -36,6 +36,11 @@ export class PaymentProcessService {
       .get<Customer[]>(this.baseApiUrl + 'api/Customer/getCustomerById/' + c_id)
       .pipe(map((response) => response[0]));
   }
+  getRoom(r_id: number): Observable<Room> {
+    return this.http
+      .get<Room[]>(this.baseApiUrl + 'api/Room/getRoomById/' + r_id)
+      .pipe(map((response) => response[0]));
+  }
   getAllRoom(): Observable<Room[]> {
     return this.http.get<Room[]>(this.baseApiUrl + 'api/Room/getRoom');
   }

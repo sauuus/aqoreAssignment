@@ -5,4 +5,6 @@ export interface Room {
   price: number;
   remainingQuantity: number;
   available: boolean;
+  hotel: any;
+
 }
