@@ -23,23 +23,25 @@ export class EditPaymentProcessComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    const tempVariable = {};
     this.route.paramMap.subscribe({
       next: (params) => {
         const idString = params.get('id');
-  
-        if(idString !== null){
+
+        if (idString !== null) {
           const id = parseInt(idString);
-  
-          if(id){
+
+          if (id) {
             this.paymentProcessService.getPaymentProcess(id).subscribe({
               next: (response) => {
+                console.log(response);
                 this.editPaymentProcessReq = response;
                 this.editPaymentProcessReq.p_id = id; // Initialize p_id
-              }
+              },
             });
           }
         }
-      }
+      },
     });
   }
 
