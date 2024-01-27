@@ -49,6 +49,13 @@ namespace WebAPI.Controllers
         [HttpPost("addRoom")]
         public async Task<IActionResult> AddRoom([FromBody] Room room)
         {
+            var existingRoom = await _bookingSystemDbContext.Room.FirstOrDefaultAsync(r => r.r_type == room.r_type && r.Price == room.Price);
+
+            if (existingRoom != null)
+            {
+                // Return an appropriate error message to the client
+                return BadRequest("A room with the same type and price already exists.");
+            }
             var data = await _bookingSystemDbContext.Database.ExecuteSqlRawAsync("EXEC CreateRoomAPI @h_id,@r_type, @Price,@Available, @RemainingQuantity",
 
                 new SqlParameter("@h_id", room.h_id),
@@ -57,7 +64,7 @@ namespace WebAPI.Controllers
                 new SqlParameter("@RemainingQuantity", room.RemainingQuantity),
                 new SqlParameter("@Available", room.Available)
                 );
-            if (data <= 0)
+            if (data < 0)
             {
                 return BadRequest();
             }

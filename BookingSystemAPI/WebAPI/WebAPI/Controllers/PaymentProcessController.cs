@@ -29,7 +29,7 @@ namespace WebAPI.Controllers
             return Ok(data); //returns status 200
         }
 
-        [HttpGet("getPaymentById{id}")]
+        [HttpGet("getPaymentById/{id}")] 
         public async Task<IActionResult> GetSingleProcess(int id)
         {
             var result = await _bookingSystemDbContext.PaymentProcess.FromSqlRaw("EXEC GetSingleProcess @p_id",
