@@ -1,0 +1,73 @@
+<div class="container my-5">
+    <h1 class="mb-3">Update Payment</h1>
+    <div class="row">
+      <div class="col-6">
+        <form #form="ngForm" (ngSubmit)="updatePayment()">
+          <div class="mb-3">
+            <label for="id" class="form-label">ID</label>
+            <input
+              type="number"
+              class="form-control"
+              id="id"
+              readonly
+              name="id"
+              [(ngModel)]="editPaymentProcessReq.p_id"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="c_id" class="form-label">Customer Id</label>
+            <input
+              type="number"
+              class="form-control"
+              id="c_id"
+              name="c_id"
+              [(ngModel)]="editPaymentProcessReq.c_id"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="r_id" class="form-label">Room Id</label>
+            <input
+              type="number"
+              class="form-control"
+              id="r_id"
+              name="r_id"
+              [(ngModel)]="editPaymentProcessReq.r_id"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="quantity" class="form-label">Quantity</label>
+            <input
+              type="number"
+              class="form-control"
+              id="quantity"
+              name="quantity"
+              [(ngModel)]="editPaymentProcessReq.quantity"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="transactionDate" class="form-label">Transaction Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="transactionDate"
+              name="transactionDate"
+              [(ngModel)]="editPaymentProcessReq.transactionDate"
+            />
+          </div>
+          <div class="d-grid gap-2 d-md-block">
+          <button type="submit" class="btn btn-outline-secondary btn-sm mr-5">
+            Save
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm ml-5"
+            (click)="deletePayment(editPaymentProcessReq.p_id)"
+          >
+            Delete
+          </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  

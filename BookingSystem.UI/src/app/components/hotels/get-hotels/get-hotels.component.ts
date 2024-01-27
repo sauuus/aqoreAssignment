@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { HotelsService } from '../../../Services/hotel/hotels.service';
 import { Component, OnInit } from '@angular/core';
 import { Hotels } from 'src/app/models/hotels.model';
@@ -9,17 +10,21 @@ import { Hotels } from 'src/app/models/hotels.model';
 })
 export class GetHotelsComponent implements OnInit {
   hotels: Hotels[] = [];
-  constructor(private hotelService: HotelsService) {}
+  constructor(private hotelService: HotelsService, private router: Router) {}
 
   ngOnInit(): void {
     this.hotelService.getAllHotels().subscribe({
-      next: (hotels) => {
-        this.hotels = hotels;
+      next: (response) => {
+        this.hotels = response;
         // console.log(this.hotels[0].h_id)
       },
-      error: (response) => {
-        console.log(response);
+      error: (err) => {
+        console.log(err);
       },
     });
+  }
+
+  navigateToAddHotels() {
+    this.router.navigate(['/getHotels']);
   }
 }

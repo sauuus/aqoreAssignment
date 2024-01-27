@@ -1,8 +1,6 @@
 <div class="container my-5 center">
   <h1 class="mb-3">Hotels</h1>
-  <a routerLink="addHotels" class="button-3"
-    ><i class="bi bi-plus-circle"></i> Add New Hotel</a
-  >
+  <a [routerLink]="['/add/hotels']" class="button-3"><i class="bi bi-plus-circle"></i> Add Hotel</a>
   <br /><br />
 
   <table class="table" *ngIf="hotels && hotels.length > 0">
@@ -29,10 +27,9 @@
         <td>{{ hotel.h_name }}</td>
         <td>{{ hotel.h_description }}</td>
         <td>{{ hotel.h_address }}</td>
-        <td><a [routerLink]="['/hotels', 'editHotels', hotel.h_id]">Edit</a></td>
-
-
-        <!-- <td><a [routerLink]="['/edit/hotels', hotel.h_id]"><i class="bi bi-pencil-square"></i> Edit</a></td> -->
+        <td>
+          <a [routerLink]="['/hotels', 'editHotels', hotel.h_id]">Edit</a>
+        </td>
       </tr>
     </tbody>
   </table>

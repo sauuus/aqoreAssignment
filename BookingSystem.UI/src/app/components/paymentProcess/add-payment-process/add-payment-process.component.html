@@ -1,0 +1,45 @@
+<div class="container my-5">
+    <h1 class="mb-3">Add New Payment</h1>
+    <div class="row">
+      <div class="col-6">
+        <form #form="ngForm" (ngSubmit)="addPayment()">
+          <div class="mb-3">
+            <label for="c_id" class="form-label">Customer Id</label>
+            <input
+              type="number"
+              class="form-control"
+              id="c_id"
+              name="c_id"
+              [(ngModel)]="addPaymentProcessReq.c_id"
+            />
+            <label for="r_id" class="form-label">Room Id</label>
+            <input
+              type="number"
+              class="form-control"
+              id="r_id"
+              name="r_id"
+              [(ngModel)]="addPaymentProcessReq.r_id"
+            />
+            <label for="quantity" class="form-label">Quantity</label>
+            <input
+              type="number"
+              class="form-control"
+              id="quantity"
+              name="quantity"
+              [(ngModel)]="addPaymentProcessReq.quantity"
+            />
+            <label for="transactionDate" class="form-label">Transaction Date</label>
+            <input
+              type="date"
+              class="form-control"
+              id="transactionDate"
+              name="transactionDate"
+              [(ngModel)]="addPaymentProcessReq.transactionDate"
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">Save</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

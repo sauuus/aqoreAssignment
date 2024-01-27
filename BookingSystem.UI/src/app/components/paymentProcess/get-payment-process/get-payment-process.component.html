@@ -1,0 +1,42 @@
+<div class="container my-5 center">
+  <h1 class="mb-3">Payment List</h1>
+  <a [routerLink]="['/add/paymentProcess']"  class="button-3"
+    ><i class="bi bi-plus-circle"></i> Add Payment</a
+  >
+  <br />
+  <br />
+
+  <table class="table" *ngIf="payments && payments.length > 0">
+    <thead class="header">
+      <tr>
+        <th>Payment ID</th>
+        <th>Customer ID</th>
+        <th>Room Id</th>
+        <th>Quantity</th>
+        <th>Transaction Date</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let payment of payments; index as i"
+        [ngClass]="{
+          'table-row-even': i % 2 === 0,
+          'table-row-odd': i % 2 !== 0
+        }"
+      >
+        <td>{{ payment.p_id }}</td>
+        <td>{{ payment.c_id }}</td>
+        <td>{{ payment.r_id }}</td>
+        <td>{{ payment.quantity }}</td>
+        <td>{{ payment.transactionDate }}</td>
+        <td>
+          <a [routerLink]="['/paymentProcess', 'editPaymentProcess', payment.p_id]"
+            ><i class="bi bi-pencil-square"></i> Edit</a
+          >
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <p *ngIf="!payments || payments.length <= 0">No Payment has been recorded!</p>
+</div>
