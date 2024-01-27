@@ -31,7 +31,7 @@ namespace WebAPI.Controllers
             return Ok(data); //returns status 200
         }
 
-        [HttpGet("getInvoiceById{id}")]
+        [HttpGet("getInvoiceById/{id}")] 
         public async Task<IActionResult> GetSingleInvoice(int id)
         {
             var result = await _bookingSystemDbContext.Invoice.FromSqlRaw("EXEC GetSingleInvoice @InvoiceId",
