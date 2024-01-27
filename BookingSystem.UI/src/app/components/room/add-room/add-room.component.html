@@ -1,3 +1,4 @@
+
 <div class="container my-5">
   <h1 class="mb-3">Add Room</h1>
   <div class="row">
@@ -133,34 +134,34 @@
         </div>
         <div class="mb-3">
           <div class="form-check">
-          <input
-            type="checkbox"
-            class="form-check-input"
-            id="available"
-            formControlName="available"
-            [ngClass]="{
-              'is-invalid':
-                roomReactiveForm.controls['available'].invalid &&
-                (roomReactiveForm.controls['available'].dirty ||
-                  roomReactiveForm.controls['available'].touched)
-            }"
-          />
-          <label for="available" class="form-check-label">Available</label>
-          <div
-            class="invalid-feedback"
-            *ngIf="
-              roomReactiveForm.get('available')?.invalid &&
-              (roomReactiveForm.get('available')?.dirty ||
-                roomReactiveForm.get('available')?.touched)
-            "
-          >
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="available"
+              formControlName="available"
+              [ngClass]="{
+                'is-invalid':
+                  roomReactiveForm.controls['available'].invalid &&
+                  (roomReactiveForm.controls['available'].dirty ||
+                    roomReactiveForm.controls['available'].touched)
+              }"
+            />
+            <label for="available" class="form-check-label">Available</label>
             <div
-              *ngIf="roomReactiveForm.controls['available']?.errors?.['required']"
+              class="invalid-feedback"
+              *ngIf="
+                roomReactiveForm.get('available')?.invalid &&
+                (roomReactiveForm.get('available')?.dirty ||
+                  roomReactiveForm.get('available')?.touched)
+              "
             >
-              This checkbox is required.
+              <div
+                *ngIf="roomReactiveForm.controls['available']?.errors?.['required']"
+              >
+                This checkbox is required.
+              </div>
             </div>
           </div>
-        </div>
         </div>
         <button
           type="submit"

@@ -11,10 +11,16 @@ import { EditHotelsComponent } from './components/hotels/edit-hotels/edit-hotels
 import { HotelsService } from './Services/hotel/hotels.service';
 import { AddRoomComponent } from './components/room/add-room/add-room.component';
 import { GetRoomComponent } from './components/room/get-room/get-room.component';
-import { EditRoomComponent } from './components/room/edit-room/edit-room.component';
 import { AddCustomerComponent } from './components/customer/add-customer/add-customer.component';
 import { EditCustomerComponent } from './components/customer/edit-customer/edit-customer.component';
 import { GetCustomerComponent } from './components/customer/get-customer/get-customer.component';
+import { AddPaymentProcessComponent } from './components/paymentProcess/add-payment-process/add-payment-process.component';
+import { EditPaymentProcessComponent } from './components/paymentProcess/edit-payment-process/edit-payment-process.component';
+import { GetPaymentProcessComponent } from './components/paymentProcess/get-payment-process/get-payment-process.component';
+import { AddInvoiceComponent } from './components/invoice/add-invoice/add-invoice.component';
+import { EditInvoiceComponent } from './components/invoice/edit-invoice/edit-invoice.component';
+import { GetInvoiceComponent } from './components/invoice/get-invoice/get-invoice.component';
+import { EditRoomComponent } from './components/room/edit-room/edit-room.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +34,12 @@ import { GetCustomerComponent } from './components/customer/get-customer/get-cus
     AddCustomerComponent,
     EditCustomerComponent,
     GetCustomerComponent,
+    AddPaymentProcessComponent,
+    EditPaymentProcessComponent,
+    GetPaymentProcessComponent,
+    AddInvoiceComponent,
+    EditInvoiceComponent,
+    GetInvoiceComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,7 +48,7 @@ import { GetCustomerComponent } from './components/customer/get-customer/get-cus
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [HotelsService],
+  providers: [],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
