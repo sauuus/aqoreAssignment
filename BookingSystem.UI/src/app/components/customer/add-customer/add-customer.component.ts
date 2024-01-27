@@ -39,6 +39,8 @@ export class AddCustomerComponent implements OnInit {
 
     this.fullName = this.customerReactiveForm.value.fullName;
     this.email = this.customerReactiveForm.value.email;
+    this.contact = this.customerReactiveForm.value.contact;
+
 
     const customer: Customer = {
       c_id: 0,

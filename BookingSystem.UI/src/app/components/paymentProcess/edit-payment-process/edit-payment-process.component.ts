@@ -6,7 +6,7 @@ import { PaymentProcessService } from 'src/app/Services/paymentProcess/payment-p
 @Component({
   selector: 'app-edit-payment-process',
   templateUrl: './edit-payment-process.component.html',
-  styleUrls: ['./edit-payment-process.component.css']
+  styleUrls: ['./edit-payment-process.component.css'],
 })
 export class EditPaymentProcessComponent implements OnInit {
   editPaymentProcessReq: PaymentProcess = {
@@ -20,34 +20,37 @@ export class EditPaymentProcessComponent implements OnInit {
     private route: ActivatedRoute,
     private paymentProcessService: PaymentProcessService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe({
       next: (params) => {
         const idString = params.get('id');
-        if (idString !== null) {
+  
+        if(idString !== null){
           const id = parseInt(idString);
-          if (id) {
+  
+          if(id){
             this.paymentProcessService.getPaymentProcess(id).subscribe({
               next: (response) => {
                 this.editPaymentProcessReq = response;
-                console.log(this.editPaymentProcessReq);
-              },
+                this.editPaymentProcessReq.p_id = id; // Initialize p_id
+              }
             });
-          } else {
-            console.log('nono');
           }
         }
-      },
+      }
     });
   }
 
   updatePayment() {
     this.paymentProcessService
-      .updatePaymentProcess(this.editPaymentProcessReq.p_id, this.editPaymentProcessReq)
+      .updatePaymentProcess(
+        this.editPaymentProcessReq.p_id,
+        this.editPaymentProcessReq
+      )
       .subscribe({
-        next: (PaymentProcess) => {
+        next: (paymentProcess) => {
           this.router.navigate(['paymentProcess']);
         },
       });

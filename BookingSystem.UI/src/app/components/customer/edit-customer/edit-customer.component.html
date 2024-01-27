@@ -4,12 +4,11 @@
     <div class="col-6">
       <form #form="ngForm" (ngSubmit)="updateCustomer()">
         <div class="mb-3">
-          <label for="c_id" class="form-label">Category ID</label>
+          <label for="id" class="form-label">Customer ID</label>
           <input
             type="number"
-            readonly
             class="form-control"
-            id="c_id"
+            id="id"
             name="id"
             [(ngModel)]="editCustomerReq.c_id"
           />

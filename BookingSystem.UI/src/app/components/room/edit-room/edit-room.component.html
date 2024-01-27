@@ -4,6 +4,15 @@
       <div class="col-6">
         <form #form="ngForm" (ngSubmit)="updateRoom()">
           <div class="mb-3">
+            <input
+              type="hidden"
+              class="form-control"
+              id="hotelId"
+              name="hotelId"
+              [(ngModel)]="editRoomReq.h_id"
+            />
+          </div>
+          <div class="mb-3">
             <label for="id" class="form-label">Room Id</label>
             <input
               type="number"

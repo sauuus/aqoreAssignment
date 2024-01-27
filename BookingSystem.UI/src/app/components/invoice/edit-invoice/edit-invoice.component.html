@@ -1,4 +1,4 @@
-<div class="container my-5">
+<!-- <div class="container my-5">
   <h1 class="mb-3">Edit Invoice</h1>
   <div class="row">
     <div class="col-6">
@@ -105,9 +105,92 @@
           </div>
           </div>
         </div>
-        <button type="submit" class="btn btn-primary" [disabled]="!invoiceReactiveForm.valid">Update</button>
-        <button type="button" class="btn btn-danger" (click)="deleteInvoice(editInvoiceReq.invoiceId)">Delete</button>
+        <div class="d-grid gap-2 d-md-block">
+          <button type="submit" class="btn btn-outline-secondary btn-sm mr-5">
+            Save
+          </button>
+          <button
+            type="button"
+            class="btn btn-outline-danger btn-sm ml-5"
+            (click)="deleteInvoice(editInvoiceReq.invoiceId)"
+          >
+            Delete
+          </button>
+          </div>
 
+      </form>
+    </div>
+  </div>
+</div> -->
+<div class="container my-5">
+  <h1 class="mb-3">Update Invoice</h1>
+  <div class="row">
+    <div class="col-6">
+      <form #form="ngForm" (ngSubmit)="updateInvoice()">
+        <div class="mb-3">
+          <label for="id" class="form-label">Invoice Id</label>
+          <input
+            type="number"
+            class="form-control"
+            id="id"
+            readonly
+            name="id"
+            [(ngModel)]="editInvoiceReq.invoiceId"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="invoiceDate" class="form-label">Invoice Date</label>
+          <input
+            type="date"
+            class="form-control"
+            id="invoiceDate"
+            name="invoiceDate"
+            [(ngModel)]="editInvoiceReq.invoiceDate"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="totalAmount" class="form-label">Total Amount</label>
+          <input
+            type="number"
+            class="form-control"
+            id="totalAmount"
+            name="totalAmount"
+            [(ngModel)]="editInvoiceReq.totalAmount"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="discount" class="form-label">Discount</label>
+          <input
+            type="number"
+            class="form-control"
+            id="discount"
+            name="discount"
+            [(ngModel)]="editInvoiceReq.discount"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="discountedAmount" class="form-label"
+            >Discounted Amount</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            id="discountedAmount"
+            name="discountedAmount"
+            [(ngModel)]="editInvoiceReq.discountedAmount"
+          />
+        </div>
+        <div class="d-grid gap-2 d-md-block">
+          <button type="submit" class="btn btn-outline-secondary btn-sm mr-5">
+            Save
+          </button>
+          <button
+            class="btn btn-outline-danger btn-sm ml-5"
+            (click)="deleteInvoice(editInvoiceReq.invoiceId)"
+          >
+            Delete
+          </button>
+        </div>
       </form>
     </div>
   </div>

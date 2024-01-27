@@ -23,6 +23,7 @@ export class AddRoomComponent implements OnInit {
     price: 0,
     remainingQuantity: 0,
     available: false,
+    hotel: 0
   };
   roomReactiveForm!: FormGroup;
   hotels!: Hotels[];
@@ -58,6 +59,12 @@ export class AddRoomComponent implements OnInit {
   }
 
   addRoom() {
+    this.addRoomReq.h_id = this.roomReactiveForm.value.h_id;
+    this.addRoomReq.r_type = this.roomReactiveForm.value.r_type;
+    this.addRoomReq.price = this.roomReactiveForm.value.price;
+    this.addRoomReq.remainingQuantity = this.roomReactiveForm.value.remainingQuantity;
+    this.addRoomReq.available = this.roomReactiveForm.value.available;
+  
     this.roomService.addRoom(this.addRoomReq).subscribe({
       next: (room) => {
         this.router.navigate(['room']);

@@ -16,6 +16,7 @@ export class EditRoomComponent implements OnInit {
     price: 0,
     remainingQuantity: 0,
     available: false,
+    hotel: 0
   };
   constructor(
     private route: ActivatedRoute,
@@ -33,6 +34,7 @@ export class EditRoomComponent implements OnInit {
             this.roomService.getRoom(id).subscribe({
               next: (response) => {
                 this.editRoomReq = response;
+                this.editRoomReq.h_id = this.editRoomReq.hotel.h_id; // Initialize h_id
                 console.log(this.editRoomReq);
               },
             });
