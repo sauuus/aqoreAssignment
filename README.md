@@ -52,3 +52,11 @@ Submission:
 ![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/e1d30938-92e8-4d59-986d-7ee806a88c84)
 ![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/6286eb41-7684-4e61-8c4e-185b65cbcba7)
 
+Invoice Page:
+
+    Printable Invoice: Upon clicking the "Submit" button, users are redirected to a printable invoice page.
+    Invoice Generation: The invoice contains details of the customer's name, email, contact and Total Price, which has a default of 5% Discount and a Total Amount.
+
+![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/2eb275ba-3dd1-4ce2-8f70-486644ec4e39)
+![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/71a5c319-1107-49d7-abec-8f7c399fb65f)
+
