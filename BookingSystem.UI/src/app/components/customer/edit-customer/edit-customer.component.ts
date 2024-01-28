@@ -10,7 +10,6 @@ import { Customer } from 'src/app/models/customer.model';
   styleUrls: ['./edit-customer.component.css']
 })
 export class EditCustomerComponent implements OnInit {
-  // customerReactiveForm!: FormGroup;
   
   editCustomerReq: Customer = {
     c_id: 0,
@@ -21,11 +20,6 @@ export class EditCustomerComponent implements OnInit {
   constructor(private route: ActivatedRoute, private customerService: CustomerService, private router: Router) { }
 
   ngOnInit(): void {
-    // this.customerReactiveForm = new FormGroup({
-    //   fullName: new FormControl(null, [Validators.required, Validators.minLength(5)]),
-    //   email: new FormControl(null, [Validators.required, Validators.email]),
-    //   contact: new FormControl(null,[Validators.required, Validators.pattern(('^[0-9]{10}$'))])
-    // });
     this.route.paramMap.subscribe({
       next: (params) => {
         const idString = params.get('id');
@@ -49,22 +43,11 @@ export class EditCustomerComponent implements OnInit {
     });
   }
 
-  // private populateForm(): void {
-  //   this.customerReactiveForm.patchValue({
-  //     fullName: this.editCustomerReq.fullName,
-  //     email: this.editCustomerReq.email,
-  //     contact: this.editCustomerReq.contact
-
-
-  //   });
-
-    // }
-
     updateCustomer(){
       this.customerService.updateCustomer(this.editCustomerReq.c_id, this.editCustomerReq)
       .subscribe({
         next: (customer) => {
-          this.router.navigate(['customer']);
+          this.router.navigate(['navbar/customer']);
         },
         error: (error) => {
           console.log(error);
@@ -76,7 +59,7 @@ export class EditCustomerComponent implements OnInit {
       this.customerService.deleteCustomer(c_id)
       .subscribe({
         next: (response) => {
-          this.router.navigate(['customer']);
+          this.router.navigate(['navbar/customer']);
 
         }
       });

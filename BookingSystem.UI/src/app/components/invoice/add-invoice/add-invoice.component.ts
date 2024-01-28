@@ -20,8 +20,6 @@ export class AddInvoiceComponent {
   discountedAmount!: number;
   customer: Customer[] = [];
 
-
-
   constructor(private invoiceService: InvoiceService, private router: Router) {}
 
   ngOnInit(): void {
@@ -34,8 +32,6 @@ export class AddInvoiceComponent {
     });
 
     this.fetchCustomer();
-
-
 
   }
 
@@ -73,7 +69,7 @@ export class AddInvoiceComponent {
     this.invoiceService.addInvoice(Invoice).subscribe(
       {
         next: () => {
-          this.router.navigate(['invoice']);
+          this.router.navigate(['navbar/invoice']);
         },
         error: (error) => {
           console.log(error);

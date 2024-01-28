@@ -31,7 +31,11 @@ export class InvoiceService {
   getAllCustomer(): Observable<Customer[]> {
     return this.http.get<Customer[]>(this.baseApiUrl + 'api/Customer/getCustomer');
   }
-
+  getCustomer(c_id: number): Observable<Customer> {
+    return this.http
+      .get<Customer[]>(this.baseApiUrl + 'api/Customer/getCustomerById/' + c_id)
+      .pipe(map((response) => response[0]));
+  }
   updateInvoice(invoiceId: number, editInvoiceReq: Invoice): Observable<Invoice> {
     return this.http.put<Invoice>(
       this.baseApiUrl + `api/Invoice/updateInvoice/` + invoiceId,

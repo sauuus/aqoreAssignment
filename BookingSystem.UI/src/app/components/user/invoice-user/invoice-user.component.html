@@ -1,0 +1,78 @@
+<div class="card">
+  <div class="card-body mx-4">
+    <div class="container">
+      <h2 class="my-5 mx-5 d-flex justify-content-center" style="font-size: 30px">Thank for your purchase</h2>
+      <hr/>
+      <div class="row">
+        <b>
+        <ul class="list-unstyled">
+          
+          <li class="text-black">
+            <div class="col-xl-10">
+              <p> Name : {{ customer.fullName }}</p>
+            </div></li>
+            <li class="text-black">
+              <div class="col-xl-10">
+                <p>Email : {{ customer.email }}</p>
+              </div></li>
+              <li class="text-black">
+                <div class="col-xl-10">
+                  <p>Contact : {{ customer.contact }}</p>
+                </div></li>
+                <br>
+<hr/>
+<li class="text-muted">
+  <span class="text-black">Invoice</span>
+  #{{ invoiceNumber }}
+</li>
+<li class="text-black mt-1">{{ paymentProcess.transactionDate }}</li>
+</ul>
+</b>
+        <hr />
+        <div class="col-xl-10">
+          <p>Price</p>
+        </div>
+        <div class="col-xl-2">
+          <p class="float-end">{{ rooms.price }}</p>
+        </div>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="col-xl-10">
+          <p>Discount</p>
+        </div>
+        <div class="col-xl-2">
+          <p class="float-end">5%</p>
+        </div>
+        <hr />
+      </div>
+      <div class="row">
+        <div class="col-xl-10">
+          <p>Discounted Amount</p>
+        </div>
+        <div class="col-xl-2">
+          <p class="float-end">{{ rooms.price * 0.05 }}</p>
+        </div>
+        <div class="row">
+          <hr style="border: 2px solid black" />
+        </div>
+        <div class="row text-black">
+          <div class="col-xl-12">
+            <p class="float-end fw-bold">
+              Total: {{ rooms.price - rooms.price * 0.05 }}
+            </p>
+          </div>
+          <hr style="border: 2px solid black" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="mx-3 my-3">
+  <button
+    class="btn btn-outline-secondary justify-content-end"
+    (click)="printThisPage()"
+  >
+    Print
+  </button>
+</div>

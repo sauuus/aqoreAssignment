@@ -56,7 +56,7 @@ export class EditHotelsComponent implements OnInit {
       .updateHotel(this.editHotelReq.h_id, this.editHotelReq)
       .subscribe({
         next: (hotels) => {
-          this.router.navigate(['hotels']);
+          this.router.navigate(['navbar/hotels']);
         },
       });
   }
@@ -64,7 +64,7 @@ export class EditHotelsComponent implements OnInit {
   deleteHotel(h_id: number) {
     this.hotelService.deleteHotel(h_id).subscribe({
       next: (response) => {
-        this.router.navigate(['hotels']);
+        this.router.navigate(['navbar/hotels']);
       },
     });
   }

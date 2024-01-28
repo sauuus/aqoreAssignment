@@ -46,7 +46,7 @@ export class AddPaymentProcessComponent implements OnInit {
     this.paymentProcessService.addPaymentProcess(this.addPaymentProcessReq).subscribe({
       //observable return needs subscribtion
       next: (PaymentProcess) => {
-        this.router.navigate(['paymentProcess']);
+        this.router.navigate(['navbar/paymentProcess']);
       },
     });
 }

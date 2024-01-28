@@ -15,18 +15,52 @@ import { EditPaymentProcessComponent } from './components/paymentProcess/edit-pa
 import { AddInvoiceComponent } from './components/invoice/add-invoice/add-invoice.component';
 import { GetInvoiceComponent } from './components/invoice/get-invoice/get-invoice.component';
 import { EditInvoiceComponent } from './components/invoice/edit-invoice/edit-invoice.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { AppComponent } from './app.component';
+import { DashboardComponent } from './components/user/dashboard/dashboard.component';
+import { HotelUserComponent } from './components/user/hotel-user/hotel-user.component';
+import { UserInfoComponent } from './components/user/user-info/user-info.component';
+import { InvoiceUserComponent } from './components/user/invoice-user/invoice-user.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: AddHotelsComponent,
+    component: DashboardComponent,
+  },
+  {
+    path: 'hotel-user',
+    component: HotelUserComponent,
+  },
+  {
+    path: 'hotel-user/:id',
+    component: HotelUserComponent,
+  },
+  {
+    path: 'user-info',
+    component: UserInfoComponent,
+  },
+  {
+    path: 'user-info/:id',
+    component: UserInfoComponent,
+  },
+  {
+    path: 'invoice-user/:id/:c_id',
+    component: InvoiceUserComponent,
+  },
+  {
+    path: 'invoice-user/:id',
+    component: InvoiceUserComponent,
+  },
+  {
+    path: 'navbar',
+    component: NavbarComponent,
   },
   {
     path: 'hotels/:id',
     component: GetHotelsComponent,
   },
   {
-    path: 'hotels',
+    path: 'navbar/hotels',
     component: GetHotelsComponent,
   },
   {
@@ -38,7 +72,7 @@ const routes: Routes = [
     component: EditHotelsComponent,
   },
   {
-    path: 'room',
+    path: 'navbar/room',
     component: GetRoomComponent,
   },
   {
@@ -54,7 +88,7 @@ const routes: Routes = [
     component: EditRoomComponent,
   },
   {
-    path: 'customer',
+    path: 'navbar/customer',
     component: GetCustomerComponent,
   },
   {
@@ -70,7 +104,7 @@ const routes: Routes = [
     component: EditCustomerComponent,
   },
   {
-    path: 'paymentProcess',
+    path: 'navbar/paymentProcess',
     component: GetPaymentProcessComponent,
   },
   {
@@ -82,7 +116,7 @@ const routes: Routes = [
     component: EditPaymentProcessComponent,
   },
   {
-    path: 'invoice',
+    path: 'navbar/invoice',
     component: GetInvoiceComponent,
   },
   {

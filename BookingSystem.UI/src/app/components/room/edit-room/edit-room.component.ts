@@ -51,7 +51,7 @@ export class EditRoomComponent implements OnInit {
       .updateRoom(this.editRoomReq.r_id, this.editRoomReq)
       .subscribe({
         next: (room) => {
-          this.router.navigate(['room']);
+          this.router.navigate(['navbar/room']);
         },
       });
   }
@@ -59,7 +59,7 @@ export class EditRoomComponent implements OnInit {
   deleteRoom(r_id: number) {
     this.roomService.deleteRoom(r_id).subscribe({
       next: (response) => {
-        this.router.navigate(['room']);
+        this.router.navigate(['navbar/room']);
       },
     });
   }

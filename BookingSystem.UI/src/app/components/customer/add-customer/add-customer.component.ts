@@ -10,12 +10,7 @@ import { Customer } from 'src/app/models/customer.model';
   styleUrls: ['./add-customer.component.css']
 })
 export class AddCustomerComponent implements OnInit {
-  // addCustomerReq: Customer = {
-  //   c_id: 0,
-  //   fullName: '',
-  //   email: '',
-  //   contact: '',
-  // };
+  
   customerReactiveForm!: FormGroup;
   fullName!: string;
   email!: string;
@@ -52,7 +47,7 @@ export class AddCustomerComponent implements OnInit {
     this.customerService.addCustomer(customer).subscribe(
       {
         next: () => {
-          this.router.navigate(['customer']);
+          this.router.navigate(['navbar/customer']);
         },
         error: (error) => {
           console.log(error);

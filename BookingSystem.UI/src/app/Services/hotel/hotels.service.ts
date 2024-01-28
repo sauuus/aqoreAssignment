@@ -14,8 +14,13 @@ export class HotelsService {
   getAllHotels(): Observable<Hotels[]> {
     return this.http.get<Hotels[]>(this.baseApiUrl + 'api/Hotel/getHotel');
   }
+  GetHotelsByAvailable(): Observable<Hotels[]> {
+    return this.http.get<Hotels[]>(
+      this.baseApiUrl + 'api/Hotel/getHotelByAvailable'
+    );
+  }
 
-    addHotel(addHotelReq: Hotels): Observable<Hotels> {
+  addHotel(addHotelReq: Hotels): Observable<Hotels> {
     return this.http.post<Hotels>(
       this.baseApiUrl + 'api/Hotel/addHotel',
       addHotelReq

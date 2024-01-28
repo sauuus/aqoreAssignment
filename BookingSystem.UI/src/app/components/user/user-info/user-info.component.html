@@ -1,0 +1,63 @@
+<form #ppForm="ngForm" (ngSubmit)="addDetails(ppForm.value)">
+  <div class="container my-5 py-3">
+    <h2
+      class="sub-heading mb-3 justify-content-between"
+      style="color: rgb(40, 43, 86); font-weight: 700"
+    >
+      <strong>Customer Details</strong>
+    </h2>
+   
+    <div class="mb-3">
+
+      <label for="c_id" class="form-label">Customer</label>
+      <select class="form-select" id="c_id" name="c_id" [(ngModel)]="selectedCustomerId">
+        <option [ngValue]="null">-- Select Customer --</option>
+        <option *ngFor="let customer of customers" [ngValue]="customer.c_id">
+          {{ customer.fullName }}
+        </option>
+      </select>
+    </div>
+
+    <h2
+      class="sub-heading mb-3 justify-content-between"
+      style="color: rgb(40, 43, 86); font-weight: 700"
+    >
+      <strong>Payment Process</strong>
+    </h2>
+    <div class="container">
+      <div class="form-group">
+        <h3 class="lead sub-heading mt-4">
+          {{ rooms.r_type }}
+        </h3>
+        <h3 class="lead sub-heading mt-4">
+          {{ rooms.available }}
+        </h3>
+        <h3 class="lead sub-heading mt-4">
+          {{ rooms.price }}
+        </h3>
+      </div>
+   
+      <label for="transactionDate" class="form-label">Transaction Date</label>
+      <input
+        type="date"
+        class="form-control"
+        id="transactionDate"
+        name="transactionDate"
+        [(ngModel)]="paymentProcess.transactionDate"
+      />
+
+    </div>
+    <div class="my-3">
+
+      <button
+      type="submit"
+      class="btn btn-outline-dark"
+      [routerLink]="['/invoice-user' ,rooms.r_id, selectedCustomerId]"
+      >
+      Submit
+    </button>
+  </div>
+  </div>
+</form>
+
+
