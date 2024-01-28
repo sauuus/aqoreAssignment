@@ -43,6 +43,21 @@ namespace WebAPI.Controllers
             return Ok(data);
         }
 
+        [HttpGet("getHotelByAvailable")]
+        public async Task<IActionResult> GetHotelsByAvailable()
+        {
+            var data = await _bookingSystemDbContext.Hotels.FromSqlRaw("GetHotelsByAvailable"
+            ).ToListAsync();
+
+            if (data == null || data.Count == 0)
+
+            {
+                return NotFound();
+            }
+
+            return Ok(data);
+        }
+
         [HttpPost("addHotel")]
         public async Task<IActionResult> AddHotel([FromBody]Hotel hotel)
         {
