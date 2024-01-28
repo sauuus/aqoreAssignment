@@ -23,7 +23,7 @@ export class AddHotelsComponent implements OnInit {
     this.hotelsService.addHotel(this.addHotelReq).subscribe({
       //observable return needs subscribtion
       next: (hotels) => {
-        this.router.navigate(['hotels']);
+        this.router.navigate(['navbar/hotels']);
       },
     });
   }

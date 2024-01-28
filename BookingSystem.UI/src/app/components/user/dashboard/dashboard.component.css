@@ -1,0 +1,198 @@
+/* Reset some default styles */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Set a basic font family and size */
+  body {
+    font-family: 'Lora', sans-serif;
+    /* font-size: 16px; */
+    line-height: 1.6;
+    color: #333; /* Set your desired text color */
+  }
+  nav:hover {
+    color: rgba(255, 255, 255, 1);
+    /* box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4); */
+  }
+
+  .logo{
+    font-size: 2rem;
+    font-family: 'Lora', sans-serif;
+    font-weight:400;
+    color: white;
+
+
+  }
+  .logo:hover{
+    color: white;
+  }
+  /* Style headings */
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    margin-bottom: 7px;
+  }
+  .sub-heading{
+
+font-family: 'Lora', sans-serif;
+    font-weight: 200;
+    margin-bottom: 7px;
+  }
+
+
+
+  h1 {
+    font-size: 3em;
+  }
+  
+  h2 {
+    font-size: 2em;
+  }
+  
+  h3 {
+    color: rgb(241, 239, 239);
+    font-size: 0.8rem;
+    /* font-weight: 100; */
+  }
+  
+  /* Style paragraphs and basic text */
+  p {
+    margin-bottom: 15px;
+    font-weight: 400;
+  }
+  
+  /* Style unordered lists */
+  ul {
+    list-style-type: disc;
+    margin-bottom: 15px;
+  }
+  
+  /* Style links */
+  a {
+    color: #007BFF; /* Set your desired link color */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Add more styles as needed for your specific project */
+  
+  .css-selector {
+    /* background: linear-gradient(320deg, #545454, #000000); */
+    background: rgb(0,0,7);
+background: radial-gradient(circle, rgba(0,0,7,1) 0%, rgb(1, 28, 55) 92%, rgba(123,124,124,1) 100%);
+    background-size: 400% 400%;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    -o-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+}
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 61%}
+    50%{background-position:100% 40%}
+    100%{background-position:0% 61%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 61%}
+    50%{background-position:100% 40%}
+    100%{background-position:0% 61%}
+}
+@-o-keyframes AnimationName {
+    0%{background-position:0% 61%}
+    50%{background-position:100% 40%}
+    100%{background-position:0% 61%}
+}
+@keyframes AnimationName {
+    0%{background-position:0% 61%}
+    50%{background-position:100% 40%}
+    100%{background-position:0% 61%}
+}
+
+
+
+#header {
+    background-color: rgba(0, 0, 0, 0.0);
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+}
+#header #header-content {
+    margin: 10px;
+}
+
+.glow-button {
+            background-color: #000000; /* Set your button background color */
+            color: #faf7f7; /* Set your button text color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Glowing animation */
+        /* .glow-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.2); 
+            border-radius: 5px;
+            transform: translate(-50%, -50%) scale(0);
+            animation: glow 1s infinite;
+        } */
+        .glow-button:hover {
+            color: rgba(255, 255, 255, 1);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.4);
+          }
+        @keyframes glow {
+            0% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(0);
+            }
+        }
+
+
+
+        .img_selector {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            overflow: hidden;
+            background-image: url('./../../../img/h1.jpg');
+        }
+        
+        .img_selector::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-image: url('./../../../img/h1.jpg');
+            z-index: -1;
+        }
+        
+  /* Import Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@700&display=swap');
+  

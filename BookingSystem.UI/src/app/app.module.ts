@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AddHotelsComponent } from './components/hotels/add-hotels/add-hotels.component';
@@ -21,6 +20,11 @@ import { AddInvoiceComponent } from './components/invoice/add-invoice/add-invoic
 import { EditInvoiceComponent } from './components/invoice/edit-invoice/edit-invoice.component';
 import { GetInvoiceComponent } from './components/invoice/get-invoice/get-invoice.component';
 import { EditRoomComponent } from './components/room/edit-room/edit-room.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { DashboardComponent } from './components/user/dashboard/dashboard.component';
+import { HotelUserComponent } from './components/user/hotel-user/hotel-user.component';
+import { UserInfoComponent } from './components/user/user-info/user-info.component';
+import { InvoiceUserComponent } from './components/user/invoice-user/invoice-user.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +44,11 @@ import { EditRoomComponent } from './components/room/edit-room/edit-room.compone
     AddInvoiceComponent,
     EditInvoiceComponent,
     GetInvoiceComponent,
+    NavbarComponent,
+    DashboardComponent,
+    HotelUserComponent,
+    UserInfoComponent,
+    InvoiceUserComponent,
   ],
   imports: [
     BrowserModule,

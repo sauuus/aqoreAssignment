@@ -15,6 +15,14 @@ export class RoomService {
   getAllRoom(): Observable<Room[]> {
     return this.http.get<Room[]>(this.baseApiUrl + 'api/Room/getRoom');
   }
+  getAllRoomByHotel(h_id: number): Observable<Room[]>{
+    return this.http
+      .get<Room[]>(this.baseApiUrl + 'api/Room/getAllRoomByHotel/' + h_id)
+  }
+  GetRoomsByAvailableId(h_id: number): Observable<Room[]>{
+    return this.http
+      .get<Room[]>(this.baseApiUrl + 'api/Room/getRoomByAvailableId/' + h_id)
+  }
 
   addRoom(addRoomReq: Room): Observable<Room> {
     return this.http.post<Room>(
@@ -22,7 +30,11 @@ export class RoomService {
       addRoomReq
     );
   }
-
+  getHotel(h_id: number): Observable<Hotels> {
+    return this.http
+      .get<Hotels[]>(this.baseApiUrl + 'api/Hotel/getHotelById/' + h_id)
+      .pipe(map((response) => response[0]));
+  }
   getRoom(r_id: number): Observable<Room> {
     return this.http
       .get<Room[]>(this.baseApiUrl + 'api/Room/getRoomById/' + r_id)

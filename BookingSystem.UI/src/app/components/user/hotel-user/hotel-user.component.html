@@ -1,0 +1,246 @@
+<body data-new-gr-c-s-check-loaded="8.909.0" data-gr-ext-installed="">
+  <header id="header">
+    <nav class=" " id="header-content">
+      <div class="container d-flex justify-content-center">
+        <div class="row flex-nowrap justify-content-between align-items-center">
+          <div class="col-1 text-center">
+            <a class="navbar-brand logo" href="#">HotelSau.</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main  pt-5">
+    <section class="jumbotron text-white img_selector">
+      <div class="container my-4 py-5 pt-5">
+        <h3>
+          <a href="" class="text-white" style="text-decoration: wavy"
+            >Go Back</a
+          >
+        </h3>
+
+        <h1 class="jumbotron-heading" style="margin-top: 5rem">
+          {{ hotels.h_name }}
+        </h1>
+        <div class="container">
+          <div class="row">
+            <div>
+              <svg
+                fill="#ffffff"
+                version="1.1"
+                id="Capa_1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                width="20px"
+                height="20px"
+                viewBox="0 0 395.71 395.71"
+                xml:space="preserve"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                ></g>
+                <g id="SVGRepo_iconCarrier">
+                  <g>
+                    <path
+                      d="M197.849,0C122.131,0,60.531,61.609,60.531,137.329c0,72.887,124.591,243.177,129.896,250.388l4.951,6.738 c0.579,0.792,1.501,1.255,2.471,1.255c0.985,0,1.901-0.463,2.486-1.255l4.948-6.738c5.308-7.211,129.896-177.501,129.896-250.388 C335.179,61.609,273.569,0,197.849,0z M197.849,88.138c27.13,0,49.191,22.062,49.191,49.191c0,27.115-22.062,49.191-49.191,49.191 c-27.114,0-49.191-22.076-49.191-49.191C148.658,110.2,170.734,88.138,197.849,88.138z"
+                    ></path>
+                  </g>
+                </g>
+              </svg>
+            </div>
+            <h2 style="font-size: 1rem; font-weight: 400" class="mx-2">
+              {{ hotels.h_address }}
+            </h2>
+          </div>
+        </div>
+        <h3 class="lead sub-heading mt-4">
+          {{ hotels.h_description }}
+        </h3>
+        <form
+          class="mt-5 d-flex justify-content-start"
+          #form="ngForm"
+          (ngSubmit)="getAvailableRooms()"
+        >
+          <div class="input-group w-50">
+            <!-- <div class="input-group my-3"> -->
+
+            <input
+              type="date"
+              class="form-control"
+              placeholder="From"
+              aria-label="From"
+              aria-describedby="basic-addon2"
+            />
+
+            <button
+              class="btn btn-outline-dark text-light"
+              type="button"
+              disabled
+            >
+              -
+            </button>
+
+            <input
+              type="date"
+              class="form-control"
+              placeholder="Select a date"
+              aria-label="Select a date"
+              aria-describedby="basic-addon2"
+            />
+
+            <!-- </div> -->
+
+            <!-- <input type="text" class="form-control w-35 p-2 ps-4" id="Search" placeholder="Looking for Hotels?" value=""> -->
+            <div class="input-group-append">
+              <button class="btn glow-button" type="submit">Search</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <div class="container my-5 py-5">
+      <h2 class="sub-heading mb-5" style="color: black; font-weight: 700">
+        <strong>Available Rooms</strong>
+      </h2>
+      <div class="container">
+        <div class="row mb-2">
+          <div
+            class="col-md-4 px-4"
+            *ngFor="let room of rooms; index as i"
+            [ngClass]="{
+              'table-row-even': i % 2 === 0,
+              'table-row-odd': i % 2 !== 0
+            }"
+          >
+            <div class="card flex-md-row mb-4 box-shadow h-md-250">
+              <div class="card-body d-flex flex-column align-items-start">
+                <div class="row d-flex justify-content-between">
+                  <h2 class="d-inline-block mb-3 px-3 text-dark">
+                    {{ room.r_type }}
+                  </h2>
+                  <h2 class="mb-2 px-3 text-success" style="font-size: 1.3rem">
+                    NPR.{{ room.price }}
+                  </h2>
+                </div>
+                <div class="card-text mb-auto px-3" *ngIf="!room.available">
+                  <h3 class="text-danger">Not Available</h3>
+                </div>
+                <div class="card-text mb-auto px-3" *ngIf="room.available">
+                  <h3 class="text-success">Available</h3>
+                  <a
+                    [routerLink]="['/user-info', room.r_id]"
+                    class="text-primary mt-2"
+                    ><button class="btn btn-outline-dark">Book</button></a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="text-muted css-selector p-3 mt-5">
+    <div class="container d-flex justify-content-center" style="height: 200px">
+      <div class="row d-flex justify-content-between mt-5">
+        <p class="text-light d-flex justify-content-center">
+          @Copyright 2024 by Sauravi Rajbhandari
+        </p>
+        <p class="float-center d-flex justify-content-center">
+          <a target="_blank" href="https://github.com/sauuus">
+            <svg
+              style="width: 50px; height: 50px"
+              viewBox="0 0 48 48"
+              id="Layer_2"
+              data-name="Layer 2"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#ffffff"
+            >
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g
+                id="SVGRepo_tracerCarrier"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              ></g>
+              <g id="SVGRepo_iconCarrier">
+                <defs>
+                  <style>
+                    .cls-1 {
+                      fill: none;
+                      stroke: #ffffff;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      fill-rule: evenodd;
+                    }
+                  </style>
+                </defs>
+                <path
+                  class="cls-1"
+                  d="M24,2.5a21.5,21.5,0,0,0-6.8,41.9c1.08.2,1.47-.46,1.47-1s0-1.86,0-3.65c-6,1.3-7.24-2.88-7.24-2.88A5.7,5.7,0,0,0,9,33.68c-1.95-1.33.15-1.31.15-1.31a4.52,4.52,0,0,1,3.29,2.22c1.92,3.29,5,2.34,6.26,1.79a4.61,4.61,0,0,1,1.37-2.88c-4.78-.54-9.8-2.38-9.8-10.62a8.29,8.29,0,0,1,2.22-5.77,7.68,7.68,0,0,1,.21-5.69s1.8-.58,5.91,2.2a20.46,20.46,0,0,1,10.76,0c4.11-2.78,5.91-2.2,5.91-2.2a7.74,7.74,0,0,1,.21,5.69,8.28,8.28,0,0,1,2.21,5.77c0,8.26-5,10.07-9.81,10.61a5.12,5.12,0,0,1,1.46,4c0,2.87,0,5.19,0,5.9s.39,1.24,1.48,1A21.5,21.5,0,0,0,24,2.5"
+                ></path>
+              </g>
+            </svg>
+          </a>
+        </p>
+        <button
+          type="button"
+          class="btn btn-outline-secondary"
+          routerLink="navbar"
+        >
+          Admin
+        </button>
+      </div>
+    </div>
+  </footer>
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    window.jQuery ||
+      document.write(
+        '<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>'
+      );
+  </script>
+  <script src="../../assets/js/vendor/popper.min.js"></script>
+  <script src="../../dist/js/bootstrap.min.js"></script>
+  <script src="../../assets/js/vendor/holder.min.js"></script>
+
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="471"
+    height="225"
+    viewBox="0 0 471 225"
+    preserveAspectRatio="none"
+    style="
+      display: none;
+      visibility: hidden;
+      position: absolute;
+      top: -100%;
+      left: -100%;
+    "
+  >
+    <defs><style type="text/css"></style></defs>
+    <text
+      x="0"
+      y="24"
+      style="
+        font-weight: bold;
+        font-size: 24pt;
+        font-family: Arial, Helvetica, Open Sans, sans-serif;
+      "
+    >
+      Thumbnail
+    </text>
+  </svg>
+</body>

@@ -11,7 +11,6 @@ import { Invoice } from 'src/app/models/invoice.model';
   styleUrls: ['./edit-invoice.component.css'],
 })
 export class EditInvoiceComponent {
-  // invoiceReactiveForm!: FormGroup;
   editInvoiceReq: Invoice = {
     invoiceId: 0,
     c_id: 0,
@@ -20,33 +19,12 @@ export class EditInvoiceComponent {
     discount: 0,
     discountedAmount: 0,
   };
-  // customers: Customer[] = [];
 
   constructor(
     private route: ActivatedRoute,
     private invoiceService: InvoiceService,
     private router: Router
   ) {}
-
-    // this.invoiceReactiveForm = new FormGroup({
-    //   c_id: new FormControl(null, Validators.required),
-    //   invoiceDate: new FormControl(null, Validators.required),
-    //   totalAmount: new FormControl(null, [
-    //     Validators.required,
-    //     Validators.min(0),
-    //   ]),
-    //   discount: new FormControl(null, [
-    //     Validators.required,
-    //     Validators.min(0),
-    //     Validators.max(1),
-    //   ]),
-    //   discountedAmount: new FormControl(null, [
-    //     Validators.required,
-    //     Validators.min(0),
-    //   ]),
-    // });
-
-    // this.fetchCustomer();
 
     ngOnInit(): void {
       this.route.paramMap.subscribe({
@@ -70,33 +48,13 @@ export class EditInvoiceComponent {
       });
     }
 
-  // fetchCustomer(): void {
-  //   this.invoiceService.getAllCustomer().subscribe(
-  //     (customers) => {
-  //       this.customers = customers;
-  //     },
-  //     (error) => {
-  //       console.log(error);
-  //     }
-  //   );
-  // }
-
-
-  // private populateForm(): void {
-  //   this.invoiceReactiveForm.patchValue({
-  //     c_id: this.editInvoiceReq.c_id,
-  //     invoiceDate: this.editInvoiceReq.invoiceDate,
-  //     totalAmount: this.editInvoiceReq.totalAmount,
-  //     discount: this.editInvoiceReq.discount,
-  //     discountedAmount: this.editInvoiceReq.discountedAmount
-  //   });
-  // }
+  
   updateInvoice() {
     this.invoiceService
       .updateInvoice(this.editInvoiceReq.invoiceId, this.editInvoiceReq)
       .subscribe({
         next: (invoice) => {
-          this.router.navigate(['invoice']);
+          this.router.navigate(['navbar/invoice']);
         },
       });
   }
@@ -104,7 +62,7 @@ export class EditInvoiceComponent {
   deleteInvoice(invoiceId: number) {
     this.invoiceService.deleteInvoice(invoiceId).subscribe({
       next: (invoice) => {
-        this.router.navigate(['invoice']);
+        this.router.navigate(['navbar/invoice']);
       },
     });
   }

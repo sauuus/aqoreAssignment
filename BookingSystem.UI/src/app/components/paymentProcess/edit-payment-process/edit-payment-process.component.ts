@@ -23,7 +23,6 @@ export class EditPaymentProcessComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const tempVariable = {};
     this.route.paramMap.subscribe({
       next: (params) => {
         const idString = params.get('id');
@@ -53,7 +52,7 @@ export class EditPaymentProcessComponent implements OnInit {
       )
       .subscribe({
         next: (paymentProcess) => {
-          this.router.navigate(['paymentProcess']);
+          this.router.navigate(['navbar/paymentProcess']);
         },
       });
   }
@@ -61,7 +60,7 @@ export class EditPaymentProcessComponent implements OnInit {
   deletePayment(p_id: number) {
     this.paymentProcessService.deletePaymentProcess(p_id).subscribe({
       next: (response) => {
-        this.router.navigate(['paymentProcess']);
+        this.router.navigate(['navbar/paymentProcess']);
       },
     });
   }
