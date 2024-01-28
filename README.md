@@ -9,7 +9,7 @@ Dashboard Overview:
 
 Footer:
 
-    Copyright & GitHub Logo: The footer includes a copyright notice along with the GitHub logo. Clicking on the GitHub logo will redirect to my personal GitHub profile.
+    Copyright & GitHub Logo: The footer includes a copyright notice and the GitHub logo. Clicking on the GitHub logo will redirect to my personal GitHub profile.
     Admin Button: Additionally, there's an admin button in the footer. Clicking on it will redirect to the admin side of the website for administrative purposes.
 
 ![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/9b93be5e-fe85-426e-911a-ec9ed764d3e3)
@@ -22,7 +22,7 @@ Welcome to the Hotel Details Page of my website. Here's a brief overview:
 Hotel Page:
 
     Hotel Overview: This page provides detailed information about a specific hotel.
-    Checkout More Button: Each hotel listed on the dashboard has a "Checkout More" button. Clicking it redirects users to the hotel's page.
+    Checkout More Button: Each hotel on the dashboard has a "Checkout More" button. Clicking it redirects users to the hotel's page.
     Room Listings: On the hotel's page, users can see all the rooms available in that particular hotel.
     Room Information: Information such as room type, availability, and price are displayed for each room.
     Book Button: Each room listing includes a "Book" button. Users can click this button to proceed with booking the room.
@@ -31,4 +31,24 @@ Hotel Page:
 ![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/17f29629-fed7-4541-b69a-78a88b75a05f)
 ![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/7e108b6f-1059-48cd-ba06-346b66a1baac)
 ![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/3a21cac3-c874-46db-a53b-03e52d400f1b)
+
+Customer Details & Payment Page
+
+Welcome to the Customer Details & Payment Page of our website. Here's a brief overview:
+
+Customer Details Section:
+
+    Customer Name: Users can provide their name by selecting options type.
+    Room/Product Description: The room or product description is automatically generated through ID, eliminating the need for users to enter the product they are booking.
+
+Payment Process Section:
+
+    Transaction Date: Users are prompted to enter the transaction date for payment processing.
+
+Submission:
+
+    Submit Button: Users can click the "Submit" button to proceed once all necessary details are provided.
+
+![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/e1d30938-92e8-4d59-986d-7ee806a88c84)
+![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/6286eb41-7684-4e61-8c4e-185b65cbcba7)
 
