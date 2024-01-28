@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 using WebAPI.Data;
 using WebAPI.Models;
 
@@ -12,6 +13,9 @@ namespace WebAPI.Controllers
     {
         
             private readonly BookingSystemDbContext _bookingSystemDbContext;
+        private SqlDbType available;
+
+        public SqlDbType Available { get; private set; }
 
         public RoomController(BookingSystemDbContext bookingSystemDbContext)
         {
@@ -45,6 +49,38 @@ namespace WebAPI.Controllers
             return Ok(result);
         }
 
+        [HttpGet("getAllRoomByHotel/{id}")]
+        public async Task<IActionResult> GetAllRoomByHotel(int id)
+        {
+            var result = await _bookingSystemDbContext.Room.FromSqlRaw("EXEC GetAllRoomByHotel @h_id",
+                new SqlParameter("@h_id", id)
+            ).ToListAsync();
+
+            if (result == null || result.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(result);
+        }
+
+
+            [HttpGet("getRoomByAvailableId/{id}")]
+        public async Task<IActionResult> GetRoomByAvailable(int id)
+        {
+            // Include the second parameter for the stored procedure
+            var data = await _bookingSystemDbContext.Room.FromSqlRaw("EXEC GetRoomsByAvailableId @h_id, @Available",
+                new SqlParameter("@h_id", id),
+                new SqlParameter("@Available", true) // Set available to true
+            ).ToListAsync();
+
+            if (data == null || data.Count == 0)
+            {
+                return NotFound();
+            }
+
+            return Ok(data);
+        }
 
         [HttpPost("addRoom")]
         public async Task<IActionResult> AddRoom([FromBody] Room room)
