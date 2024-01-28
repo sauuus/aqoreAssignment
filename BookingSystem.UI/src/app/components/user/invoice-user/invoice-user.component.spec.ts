@@ -1,6 +1,7 @@
+import { InvoiceUserComponent } from './invoice-user.component';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InvoiceUserComponent } from './invoice-user.component';
+
 
 describe('InvoiceUserComponent', () => {
   let component: InvoiceUserComponent;
