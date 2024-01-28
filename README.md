@@ -60,3 +60,44 @@ Invoice Page:
 ![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/2eb275ba-3dd1-4ce2-8f70-486644ec4e39)
 ![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/71a5c319-1107-49d7-abec-8f7c399fb65f)
 
+Admin 
+
+Welcome to the Admin Dashboard of our website. Here's an overview of the components available in the navbar:
+Navbar Components:
+
+    Hotels: This component allows administrators to manage hotels.
+        Get All Hotels: View all existing hotels.
+        Post Hotel: Add a new hotel.
+        Edit Hotel: Modify existing hotel details.
+
+    Rooms: This component enables administrators to manage rooms.
+        Get All Rooms: View all available rooms.
+        Post Room: Add a new room.
+        Edit Room: Modify existing room details.
+
+    Customers: This component facilitates the management of customer details.
+        Get All Customers: View all registered customers.
+        Post Customer: Add a new customer.
+        Edit Customer: Modify existing customer details.
+
+    Payment Process: This component handles payment processing.
+        Get All Payments: View all payment transactions.
+        Post Payment: Add a new payment transaction.
+        Edit Payment: Modify existing payment details.
+
+    Invoice: This component deals with invoice generation.
+        Get All Invoices: View all generated invoices.
+        Post Invoice: Add a new invoice.
+        Edit Invoice: Modify existing invoice details.
+
+Usage:
+
+    Navigation: Administrators can navigate through different components using the navbar.
+    Management: Each component provides functionalities to view, add, and edit corresponding data.
+    Administration: Administrators can efficiently manage hotels, rooms, customer details, payment processes, and invoices through the admin dashboard.
+
+
+![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/5ce3257a-bb7e-4454-89ce-d47348ae1210)
+![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/27c00a58-8704-49b7-a84c-8eed16ca8a8e)
+![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/7e06e4bd-f1a7-4747-961d-89bd1672a138)
+![image](https://github.com/sauuus/aqoreAssignment/assets/103302982/44ab612c-a549-4e03-9afc-5bfa611e2b29)
